@@ -11,9 +11,9 @@ describe ToDo::Item do
     expect(item.finished_at).to be_nil
 
     now = Time.now
-    item.finish
+    item.finish(double(:clock, now: now))
 
     expect(item.finished_at).to be_an_instance_of(Time)
-    expect(item.finished_at).to be >= now
+    expect(item.finished_at).to eq(now)
   end
 end

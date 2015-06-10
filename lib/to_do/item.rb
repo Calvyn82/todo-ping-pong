@@ -7,8 +7,8 @@ module ToDo
 
     attr_reader :task, :finished_at
 
-    def finish
-      @finished_at = Time.now
+    def finish(clock = Time)
+      @finished_at = clock.now
     end
   end
 end
