@@ -13,7 +13,7 @@ module ToDo
 
     def finish(item)
       not_done.delete(item)
-      done << item
+      done << item.finish
     end
   end
 end
