@@ -25,5 +25,10 @@ describe ToDo::List do
       expect(list.not_done).to eq([ ])
       expect(list.done).to     eq([item])
     end
+
+    it "marks items finished as they are moved" do
+      expect(item).to receive(:finish)
+      list.finish(item)
+    end
   end
 end
