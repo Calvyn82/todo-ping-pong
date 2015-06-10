@@ -17,6 +17,6 @@ describe ToDo::List do
   it "doesn't add items to done" do
     item = double(:item)
     list.add(item)
-    expect(list.not_done).to eq([ ])
+    expect(list.done).to eq([ ])
   end
 end
