@@ -9,8 +9,14 @@ describe ToDo::List do
   end
 
   it "adds items to the not done category" do
-    item = double
-    list.add(double)
-    expect(list.not_done).to eq([double])
+    item = double(:item)
+    list.add(item)
+    expect(list.not_done).to eq([item])
+  end
+
+  it "doesn't add items to done" do
+    item = double(:item)
+    list.add(item)
+    expect(list.not_done).to eq([ ])
   end
 end
