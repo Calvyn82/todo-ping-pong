@@ -13,5 +13,9 @@ module ToDo
     def done
       items
     end
+
+    def add(item)
+      @items << item
+    end
   end
 end
