@@ -9,7 +9,7 @@ describe ToDo::List do
   end
 
   context "items" do
-    let(:item) { double(:item) }
+    let(:item) { spy("item") }
 
     before :each do
       list.add(item)
@@ -27,8 +27,8 @@ describe ToDo::List do
     end
 
     it "marks items finished as they are moved" do
-      expect(item).to receive(:finish)
       list.finish(item)
+      expect(item).to have_received(:finish)
     end
   end
 end
