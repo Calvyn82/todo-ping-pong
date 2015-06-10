@@ -11,7 +11,7 @@ module ToDo
     end
 
     def done
-      items
+      [ ]
     end
 
     def add(item)
