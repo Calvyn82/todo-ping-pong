@@ -8,27 +8,22 @@ describe ToDo::List do
     expect(list.done).to     eq([ ])
   end
 
-  it "adds items to the not done category" do
-    item = double(:item)
-    list.add(item)
-    expect(list.not_done).to eq([item])
-  end
+  context "items" do
+    let(:item) { double(:item) }
 
-  it "doesn't add items to done" do
-    item = double(:item)
-    list.add(item)
-    expect(list.done).to eq([ ])
-  end
+    before :each do
+      list.add(item)
+    end
 
-  it "moves items to done when finished" do
-    item = double(:item)
-    list.add(item)
-    expect(list.not_done).to eq([item])
-    expect(list.done).to     eq([ ])
+    it "adds items to the not done category" do
+      expect(list.not_done).to eq([item])
+      expect(list.done).to     eq([ ])
+    end
 
-    list.finish(item)
-
-    expect(list.not_done).to eq([ ])
-    expect(list.done).to     eq([item])
+    it "moves items to done when finished" do
+      list.finish(item)
+      expect(list.not_done).to eq([ ])
+      expect(list.done).to     eq([item])
+    end
   end
 end

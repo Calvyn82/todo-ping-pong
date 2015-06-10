@@ -1,27 +1,19 @@
 module ToDo
   class List
     def initialize
-      @unfinished_items = []
-      @finished_items   = []
+      @not_done = []
+      @done     = []
     end
 
-    attr_reader :unfinished_items, :finished_items
-
-    def not_done
-      unfinished_items
-    end
-
-    def done
-      finished_items
-    end
+    attr_reader :not_done, :done
 
     def add(item)
-      @unfinished_items << item
+      not_done << item
     end
 
     def finish(item)
-      @unfinished_items.delete(item)
-      @finished_items << item
+      not_done.delete(item)
+      done << item
     end
   end
 end
