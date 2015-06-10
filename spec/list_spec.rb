@@ -1,4 +1,4 @@
-require_relative "../lib/todo/list"
+require_relative "../lib/to_do/list"
 
 describe ToDo::List do
   it "starts with empty categories" do
